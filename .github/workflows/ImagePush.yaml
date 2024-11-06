@@ -23,8 +23,8 @@ jobs:
         run: |
           ls -a
           cd diablocharactertracker.client
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/diablo:${{ github.run_number }} -t ${{ secrets.DOCKER_USERNAME }}/diablo:latest .
-          docker push ${{ secrets.DOCKER_USERNAME }}/diablo --all-tags
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/parkerdiablo:${{ github.run_number }} -t ${{ secrets.DOCKER_USERNAME }}/parkerdiablo:latest .
+          docker push ${{ secrets.DOCKER_USERNAME }}/parkerdiablo --all-tags
 
       - name: Apply Kubernetes
         run: |
