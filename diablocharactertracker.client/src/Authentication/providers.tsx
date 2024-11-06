@@ -8,7 +8,7 @@ const oidcConfig: AuthProviderProps = {
   client_id: "Parker-Final",
   redirect_uri:
     process.env.NODE_ENV === "production"
-      ? "https://parkerdirectory.duckdns.org/"
+      ? "https://parkerdiablo.duckdns.org/"
       : "http://localhost:5173/",
 
   onSigninCallback: async (user) => {
