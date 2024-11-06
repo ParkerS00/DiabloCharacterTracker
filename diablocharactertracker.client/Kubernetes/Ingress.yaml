@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: diablo-ingress
+  namespace: diablo
+  annotations:
+    spec.ingressClassName: "nginx"
+spec:
+  rules:
+    - host: parkerdiablo.duckdns.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: diablo-client
+                port: 
+                  number: 80

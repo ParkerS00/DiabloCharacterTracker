@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: diablo-client
+  namespace: diablo
+  labels:
+    app: diablo-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: diablo-client
+  template:
+    metadata:
+      labels:
+        app: diablo-client
+    spec:
+      containers:
+        - name: diablo-client
+          image: codebras/parkerdiablo:${RUN_ID}
+          ports:
+            - containerPort: 80
+          env:
+            - name: VITE_URL
+              value: https://parkerdiablo.duckdns.org
