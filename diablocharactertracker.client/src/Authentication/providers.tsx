@@ -6,7 +6,10 @@ import GetUser from "./getUserService";
 const oidcConfig: AuthProviderProps = {
   authority: "https://auth.snowse.duckdns.org/realms/advanced-frontend/",
   client_id: "Parker-Final",
-  redirect_uri: "https://localhost:5173/",
+  redirect_uri:
+    process.env.NODE_ENV === "production"
+      ? "https://parkerdirectory.duckdns.org/"
+      : "http://localhost:5173/",
 
   onSigninCallback: async (user) => {
     const newURL = window.location.href.split("?")[0];
