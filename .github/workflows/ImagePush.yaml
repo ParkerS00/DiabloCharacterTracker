@@ -22,6 +22,7 @@ jobs:
         - name: Build and push client image
           run: |
             ls -a
+            cd diablocharactertracker.client
             docker build -t ${{ secrets.DOCKER_USERNAME }}/diablo:${{ github.run_number }} -t ${{ secrets.DOCKER_USERNAME }}/diablo:latest
             docker push ${{ secrets.DOCKER_USERNAME }}/diablo --all-tags
 
@@ -29,6 +30,7 @@ jobs:
           run: |
             kubectl create namespace diablo || true
             export RUN_ID=${{ github.run_number }}
+            cd diablocharactertracker.client
             ls -a
             for file in ./*; do
                 echo "Applying $file"
