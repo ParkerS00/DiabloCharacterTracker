@@ -20,4 +20,16 @@ public class SkillController : Controller
     {
         return await skillService.GetAllSkills();   
     }
+
+    [HttpGet("getskillbyid")]
+    public async Task<SkillDTO> GetSkillById(int skillId)
+    {
+        return await skillService.GetSkillById(skillId);
+    }
+
+    [HttpGet("getskillbyname")]
+    public async Task<SkillDTO> GetSkillByName(string skillName)
+    {
+        return await skillService.GetSkillByName(skillName);
+    }
 }

@@ -24,16 +24,38 @@ public class SkillService : ISkillService
             return new List<SkillDTO>();
         };
 
-        return skills.Select(x => x.ToDTO()).ToList();  
+        return skills.Select(x => x.ToDTO()).ToList();
     }
 
-    public Task<SkillDTO> GetSkillById(int skillId)
+    public async Task<SkillDTO> GetSkillById(int skillId)
     {
-        throw new NotImplementedException();
+        using var context = await dbContextFactory.CreateDbContextAsync();
+
+        var skill = await context.Skills
+            .Where(x => x.Id == skillId)
+            .FirstOrDefaultAsync();
+
+        if (skill == null)
+        {
+            return new SkillDTO();
+        }
+
+        return skill.ToDTO();
     }
 
-    public Task<SkillDTO> GetSkillByName(string skillName)
+    public async Task<SkillDTO> GetSkillByName(string skillName)
     {
-        throw new NotImplementedException();
+        using var context = await dbContextFactory.CreateDbContextAsync();
+
+        var skill = await context.Skills
+            .Where(x => x.SkillName == skillName)
+            .FirstOrDefaultAsync();
+
+        if (skill == null)
+        {
+            return new SkillDTO(); 
+        }
+
+        return skill.ToDTO();   
     }
 }
