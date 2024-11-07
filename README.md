@@ -38,10 +38,10 @@
 - [ ] Network Calls (Read data, Write data) - 5pts
 - [ ] Developer type helping (typescript) - 5pts
 - [ ] 10+ pages/views via a router - 5pts
-- [ ] CI/CD pipeline - 5pts
+- [X] CI/CD pipeline - 5pts
 - [ ] 3+ reusable form input components - 9pts
 - [ ] 4+ reusable layout components - 12pts
-- [ ] Authentication and User Account Support - 10pts
+- [X] Authentication and User Account Support - 10pts
 - [ ] Authorized and Public Pages - 5pts
 - [ ] Mobile Friendtly - 5pts
 - [ ] 3 Instances Where Elements Re-Order Based on Screen Size - 5pts
