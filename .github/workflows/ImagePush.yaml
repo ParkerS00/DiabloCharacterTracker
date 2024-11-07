@@ -23,13 +23,24 @@ jobs:
         run: |
           ls -a
           cd diablocharactertracker.client
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/parkerdiablo:${{ github.run_number }} -t ${{ secrets.DOCKER_USERNAME }}/parkerdiablo:latest .
-          docker push ${{ secrets.DOCKER_USERNAME }}/parkerdiablo --all-tags
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/diabloclient:${{ github.run_number }} -t ${{ secrets.DOCKER_USERNAME }}/diabloclient:latest .
+          docker push ${{ secrets.DOCKER_USERNAME }}/diabloclient --all-tags
+
+      - name: Build and push server image
+        run: |
+          ls -a
+          cd diablocharactertracker.server
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/diabloserver:${{ github.run_number }} -t ${{ secrets.DOCKER_USERNAME }}/diabloserver:latest .
+          docker push ${{ secrets.DOCKER_USERNAME }}/diabloserver --all-tags
 
       - name: Apply Kubernetes
         run: |
           kubectl create namespace diablo || true
           export RUN_ID=${{ github.run_number }}
+          export DB_USER_ID=${{secrets.DB_USER_ID}}
+          export DB_PASSWORD=${{secrets.DB_PASSWORD}}
+          export DB_SERVER=${{secrets.DB_SERVER}}
+          export DB_DB=${{secrets.DB_DB}}
           cd Kubernetes
           ls -a
           for file in ./*; do

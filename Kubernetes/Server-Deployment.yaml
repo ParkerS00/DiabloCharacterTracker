@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: diablo-server
+  namespace: diablo
+  labels:
+    app: diablo-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: diablo-server
+  template:
+    metadata:
+      labels:
+        app: diablo-server
+    spec:
+      containers:
+        - name: diablo-server
+          image: codebras/diabloserver:${RUN_ID}
+          ports:
+          - containerPort: 8080
+          env:
+          - name: ConnectionStrings__diablodb
+            value: user id= ${DB_USER_ID}; password= ${DB_PASSWORD}; server= ${DB_SERVER}; database= ${DB_DB};
+          - name: allowAll
+            value: "true"
+          - name: clientUrl
+            value: https://parkerdiablo.duckdns.org/ 

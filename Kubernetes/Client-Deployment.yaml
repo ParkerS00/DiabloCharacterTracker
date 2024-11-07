@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: diablo-client
-          image: codebras/parkerdiablo:${RUN_ID}
+          image: codebras/diabloclient:${RUN_ID}
           ports:
             - containerPort: 80
           env:
