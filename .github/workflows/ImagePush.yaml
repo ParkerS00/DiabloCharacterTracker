@@ -30,7 +30,6 @@ jobs:
         run: |
           kubectl create namespace diablo || true
           export RUN_ID=${{ github.run_number }}
-          cd diablocharactertracker.client
           ls -a
           for file in ./*; do
               echo "Applying $file"
