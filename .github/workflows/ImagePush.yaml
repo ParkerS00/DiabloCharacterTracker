@@ -29,7 +29,7 @@ jobs:
       - name: Build and push server image
         run: |
           ls -a
-          cd diablocharactertracker.server
+          cd DiabloCharacterTracker.Server
           docker build -t ${{ secrets.DOCKER_USERNAME }}/diabloserver:${{ github.run_number }} -t ${{ secrets.DOCKER_USERNAME }}/diabloserver:latest .
           docker push ${{ secrets.DOCKER_USERNAME }}/diabloserver --all-tags
 
