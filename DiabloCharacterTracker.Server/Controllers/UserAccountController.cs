@@ -1,5 +1,6 @@
 ﻿using DiabloCharacterTracker.Server.DTOs;
-using DiabloCharacterTracker.Server.Requests;
+using DiabloCharacterTracker.Server.Requests.AddRequests;
+using DiabloCharacterTracker.Server.Requests.GetRequests;
 using DiabloCharacterTracker.Server.Services.UserAccountServices;
 using Microsoft.AspNetCore.Mvc;
 

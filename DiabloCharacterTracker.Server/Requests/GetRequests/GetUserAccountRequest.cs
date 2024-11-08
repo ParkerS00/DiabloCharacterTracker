@@ -1,4 +1,4 @@
-﻿namespace DiabloCharacterTracker.Server.Requests;
+﻿namespace DiabloCharacterTracker.Server.Requests.GetRequests;
 
 public class GetUserAccountRequest
 {

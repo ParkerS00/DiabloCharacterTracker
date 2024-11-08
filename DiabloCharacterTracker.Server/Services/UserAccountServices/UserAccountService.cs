@@ -1,6 +1,7 @@
 ﻿using DiabloCharacterTracker.Server.Data;
 using DiabloCharacterTracker.Server.DTOs;
-using DiabloCharacterTracker.Server.Requests;
+using DiabloCharacterTracker.Server.Requests.AddRequests;
+using DiabloCharacterTracker.Server.Requests.GetRequests;
 using Microsoft.EntityFrameworkCore;
 
 namespace DiabloCharacterTracker.Server.Services.UserAccountServices;
@@ -26,7 +27,7 @@ public class UserAccountService : IUserAccountService
 
         if (possibleUser != null)
         {
-            return possibleUser.Id;
+            return 0;
         }
 
         UserAccount newUser = new UserAccount()

@@ -54,4 +54,20 @@ public static class DTOConverter
             Id = userAccount.Id,    
         };
     }
+
+    public static PlayableCharacterDTO ToDTO(this PlayableCharacter character)
+    {
+        if (character == null)
+        {
+            return new PlayableCharacterDTO();
+        }
+
+        return new PlayableCharacterDTO()
+        {
+            CharacterClass = character.CharacterClass!.ToDTO(),
+            Id = character.Id,
+            Name = character.Name,
+            UserAccount = character.UserAccount!.ToDTO(),
+        };
+    }
 }
