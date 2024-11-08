@@ -1,0 +1,5 @@
+Colors:
+    - Primary: 040303, rgb(4, 3, 3)
+    - Secondary: 461111, rgb(70, 17, 17)
+    - Tertiary: A13333, rgb(161, 51, 51)
+    - Offset: B3541E, rgb(179, 84, 30)
