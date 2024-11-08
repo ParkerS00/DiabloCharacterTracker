@@ -21,4 +21,21 @@ public static class DTOConverter
             SkillName = skill.SkillName 
         };
     }
+
+    public static CharacterClassDTO ToDTO(this CharacterClass characterClass)
+    {
+        if (characterClass == null)
+        {
+            return new CharacterClassDTO();
+        }
+
+        return new CharacterClassDTO()
+        {
+            ClassName = characterClass.ClassName,
+            Description = characterClass.Description,
+            Id = characterClass.Id,
+            ItemSlots = characterClass.ItemSlots,
+            Resource = characterClass.Resource,
+        };
+    }
 }
