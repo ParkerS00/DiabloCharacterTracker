@@ -3,6 +3,7 @@ WORKDIR /app
 COPY package.json .
 RUN NODE_ENV=development npm i
 COPY . .
+COPY public ./public
 RUN npm run build 
 
 FROM nginx:1.27.0

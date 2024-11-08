@@ -5,11 +5,11 @@ function App() {
   return (
     <div className="h-screen bg-gradient-to-b from-blood-800 to-blood-950">
       <Navbar></Navbar>
-      <div className="flex">
+      <div className="flex mt-16">
         <div>
           <img
-            className="h-auto"
-            src="public\D4_LilithWallpaper_1920x1200_16x10_png_jpgcopy.jpg"
+            className="w-full h-auto"
+            src="/D4_LilithWallpaper_1920x1200_16x10_png_jpgcopy.jpg"
             alt="Lillith"
           ></img>
         </div>
