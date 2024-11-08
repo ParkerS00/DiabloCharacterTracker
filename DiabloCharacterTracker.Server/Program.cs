@@ -1,6 +1,7 @@
 using DiabloCharacterTracker.Server.Data;
 using DiabloCharacterTracker.Server.Services.CharaterClassServices;
 using DiabloCharacterTracker.Server.Services.SkillServices;
+using DiabloCharacterTracker.Server.Services.UserAccountServices;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<ISkillService, SkillService>();
 builder.Services.AddSingleton<ICharacterClassService, CharacterClassService>();
+builder.Services.AddSingleton<IUserAccountService, UserAccountService>();
 
 builder.Services.AddDbContextFactory<DiabloDbContext>(config => config.UseNpgsql(builder.Configuration.GetConnectionString("diablodb"), builder =>
 {

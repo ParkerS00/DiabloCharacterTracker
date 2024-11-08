@@ -38,4 +38,20 @@ public static class DTOConverter
             Resource = characterClass.Resource,
         };
     }
+
+    public static UserAccountDTO ToDTO(this UserAccount userAccount)
+    {
+        if (userAccount == null)
+        {
+            return new UserAccountDTO();
+        }
+
+        return new UserAccountDTO()
+        {
+            Email = userAccount.Email,
+            FirstName = userAccount.FirstName,
+            LastName = userAccount.LastName,
+            Id = userAccount.Id,    
+        };
+    }
 }
