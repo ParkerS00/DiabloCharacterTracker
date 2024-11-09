@@ -19,7 +19,7 @@
 - Not sure yet, nothing?
 
 ### Pages
-- [ ] Home
+- [X] Home
 - [ ] Create Character
 - [ ] View All Character Builds
 - [ ] View All Armor
