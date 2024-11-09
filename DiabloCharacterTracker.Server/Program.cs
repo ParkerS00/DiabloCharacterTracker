@@ -24,18 +24,27 @@ builder.Services.AddDbContextFactory<DiabloDbContext>(config => config.UseNpgsql
     builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
 }));
 
-builder.Services.AddCors();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+        });
+});
 
 var app = builder.Build();
+
+app.UseCors("AllowSpecificOrigin");
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
-
 app.UseSwagger();
 app.UseSwaggerUI();
-
-app.UseCors("AllowSpecificOrigin");
 
 app.UseHttpsRedirection();
 

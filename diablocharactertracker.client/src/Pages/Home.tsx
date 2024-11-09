@@ -1,10 +1,11 @@
-import { Navbar } from "./Components/Nav";
-import "./Styles/Global.css";
+import { UserAccountQueries } from "../Queries/UserAccountQueries";
 
-function App() {
+function Home() {
+  const { data: user } = UserAccountQueries.useGetUserAccountById(1);
+  console.log("User: ", user);
+
   return (
     <div className="h-screen bg-gradient-to-b from-blood-800 to-blood-950 flex flex-col">
-      <Navbar />
       <div className="flex flex-grow lg:justify-center items-center gap-16 px-16 mt-16 flex-col lg:flex-row">
         <div className="flex flex-col text-center lg:text-left lg:w-1/2">
           <p className="text-blood-50 text-wrap text-xl">
@@ -29,4 +30,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
