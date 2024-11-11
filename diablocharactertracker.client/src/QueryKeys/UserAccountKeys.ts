@@ -6,6 +6,10 @@ const UserAccountKeys = {
   GetUserAccountByRequest: (email: string) =>
     ["UserAccount", "GetUserAccountByRequest", email] as const,
   DeleteUserAccount: ["UserAccount", "DeleteUserAccount"] as const,
+  GetAuthorizedUserAccount: [
+    "UserAccount",
+    "GetAuthorizedUserAccount",
+  ] as const,
 };
 
 export default UserAccountKeys;

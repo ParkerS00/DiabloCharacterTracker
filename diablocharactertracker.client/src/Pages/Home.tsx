@@ -1,9 +1,4 @@
-import { UserAccountQueries } from "../Queries/UserAccountQueries";
-
 function Home() {
-  const { data: user } = UserAccountQueries.useGetUserAccountById(1);
-  console.log("User: ", user);
-
   return (
     <div className="h-screen bg-gradient-to-b from-blood-800 to-blood-950 flex flex-col">
       <div className="flex flex-grow lg:justify-center items-center gap-16 px-16 mt-16 flex-col lg:flex-row">

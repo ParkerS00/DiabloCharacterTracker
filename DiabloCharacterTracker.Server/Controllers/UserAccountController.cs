@@ -2,7 +2,9 @@
 using DiabloCharacterTracker.Server.Requests.AddRequests;
 using DiabloCharacterTracker.Server.Requests.GetRequests;
 using DiabloCharacterTracker.Server.Services.UserAccountServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace DiabloCharacterTracker.Server.Controllers;
 
@@ -39,5 +41,27 @@ public class UserAccountController : Controller
     public async Task<bool> DeleteUser(int userId)
     {
         return await userAccountService.DeleteUser(userId);
+    }
+
+    [HttpGet("getauthorizeduser")]
+    [Authorize]
+    public async Task<UserAccountDTO> GetAuthroizedUser()
+    {
+        var email = User.FindFirst(ClaimTypes.Email)?.Value;
+
+        GetUserAccountRequest request = new GetUserAccountRequest()
+        { 
+            Email = email,
+        };
+
+
+        var userAccount = await GetUserByRequest(request);
+
+        if (userAccount == null)
+        {
+            return new UserAccountDTO();
+        }
+
+        return userAccount;
     }
 }

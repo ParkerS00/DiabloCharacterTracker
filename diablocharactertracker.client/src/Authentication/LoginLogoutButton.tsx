@@ -1,8 +1,18 @@
 import { useAuth } from "react-oidc-context";
 import "../Styles/Global.css";
+import { useEffect } from "react";
 
 export default function LoginLogoutButton() {
   const auth = useAuth();
+
+  useEffect(() => {
+    if (auth.user) {
+      const date = new Date(auth.user.expires_at ?? 0 * 1000);
+      document.cookie = `auth_token${
+        auth.user.id_token
+      };expires=${date.toUTCString()}`;
+    }
+  }, [auth.user]);
 
   switch (auth.activeNavigator) {
     case "signinSilent":

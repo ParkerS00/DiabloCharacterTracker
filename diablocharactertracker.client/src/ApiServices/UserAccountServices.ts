@@ -70,4 +70,20 @@ export const UserAccountServices = {
       throw error;
     }
   },
+  GetAuthorizedUser: async (id_token: string) => {
+    try {
+      const response = await axios.get<UserAccount>(
+        `${import.meta.env.VITE_URL}/UserAccount/getauthorizeduser`,
+        {
+          headers: {
+            Authorization: `Bearer ${id_token}`,
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Failed to get authorized user");
+      throw error;
+    }
+  },
 };

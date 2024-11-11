@@ -42,4 +42,10 @@ export const UserAccountQueries = {
       },
     });
   },
+  useGetAuthorizedUserAccount: (id_token: string) => {
+    return useQuery({
+      queryFn: () => UserAccountServices.GetAuthorizedUser(id_token),
+      queryKey: keys.GetAuthorizedUserAccount,
+    });
+  },
 };

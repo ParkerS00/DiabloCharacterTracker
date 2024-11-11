@@ -70,4 +70,21 @@ public static class DTOConverter
             UserAccount = character.UserAccount!.ToDTO(),
         };
     }
+
+    public static ItemDTO ToDTO(this Item item)
+    {
+        if (item == null)
+        {
+            return new ItemDTO();
+        }
+
+        return new ItemDTO()
+        { 
+            Id = item.Id,
+            Name = item.ItemName,
+            IsMythic = item.IsMythic,
+            Slot = item.Slot,
+        };
+
+    }
 }

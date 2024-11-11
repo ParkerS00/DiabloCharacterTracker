@@ -1,6 +1,5 @@
 import { AuthProvider, AuthProviderProps } from "react-oidc-context";
 import { ReactNode } from "react";
-import GetUser from "./getUserService";
 
 //https://auth.snowse.duckdns.org/realms/advanced-frontend/.well-known/openid-configuration
 const oidcConfig: AuthProviderProps = {
@@ -10,6 +9,7 @@ const oidcConfig: AuthProviderProps = {
     process.env.NODE_ENV === "production"
       ? "https://parkerdiablo.duckdns.org/"
       : "http://localhost:5173/",
+  automaticSilentRenew: true,
 
   onSigninCallback: async (user) => {
     const newURL = window.location.href.split("?")[0];
@@ -17,7 +17,6 @@ const oidcConfig: AuthProviderProps = {
     console.log("setting cookie", user?.access_token);
 
     document.cookie = `jwt_token = ${user?.access_token}`;
-    GetUser();
   },
 };
 

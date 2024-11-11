@@ -1,9 +1,12 @@
 using DiabloCharacterTracker.Server.Data;
 using DiabloCharacterTracker.Server.Services.CharaterClassServices;
+using DiabloCharacterTracker.Server.Services.ItemServices;
 using DiabloCharacterTracker.Server.Services.PlayableCharacterServices;
 using DiabloCharacterTracker.Server.Services.SkillServices;
 using DiabloCharacterTracker.Server.Services.UserAccountServices;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,11 +21,31 @@ builder.Services.AddSingleton<ISkillService, SkillService>();
 builder.Services.AddSingleton<ICharacterClassService, CharacterClassService>();
 builder.Services.AddSingleton<IUserAccountService, UserAccountService>();
 builder.Services.AddSingleton<IPlayableCharacterService, PlayableCharacterService>();
+builder.Services.AddSingleton<IItemService, ItemService>(); 
 
 builder.Services.AddDbContextFactory<DiabloDbContext>(config => config.UseNpgsql(builder.Configuration.GetConnectionString("diablodb"), builder =>
 {
     builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
 }));
+
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidIssuer = "https://auth.snowse.duckdns.org/realms/advanced-frontend",
+        ValidAudience = "Parker-Final",
+    };
+
+    options.Authority = "https://auth.snowse.duckdns.org/realms/advanced-frontend";
+});
 
 
 builder.Services.AddCors(options =>
