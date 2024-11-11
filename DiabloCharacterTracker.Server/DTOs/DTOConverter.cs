@@ -85,6 +85,21 @@ public static class DTOConverter
             IsMythic = item.IsMythic,
             Slot = item.Slot,
         };
+    }
+
+    public static AffixDTO ToDTO(this Affix affix) 
+    {
+        if (affix == null)
+        {
+            return new AffixDTO();
+        }
+
+        return new AffixDTO()
+        {
+            Id = affix.Id,
+            Label = affix.AffixLabel,
+            Name = affix.AffixName,
+        };
 
     }
 }
