@@ -4,6 +4,7 @@ COPY package.json .
 RUN NODE_ENV=development npm i
 COPY . .
 COPY public ./public
+ENV VITE_URL "https://api.parkerdiablo.duckdns.org"
 RUN npm run build 
 
 FROM nginx:1.27.0
