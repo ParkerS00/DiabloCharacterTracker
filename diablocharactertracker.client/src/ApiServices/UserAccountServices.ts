@@ -1,6 +1,6 @@
 import { AddUserAccountRequest } from "../Data/Requests/AddRequests/AddUserAccountRequest";
 import { GetuserAccountRequest } from "../Data/Requests/GetRequests/GetUserAccountRequest";
-import { UserAccount } from "../Data/UserAccount";
+import { UserAccount } from "../Data/DTOs/UserAccount";
 import axios from "axios";
 
 export const UserAccountServices = {
