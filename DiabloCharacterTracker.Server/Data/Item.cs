@@ -12,6 +12,8 @@ public partial class Item
     public string? Slot { get; set; }
 
     public bool? IsMythic { get; set; }
+    public string? SlotType { get; set; }
+    public string? ImageUrl { get; set; }   
 
     public virtual ICollection<CharacterItem> CharacterItems { get; set; } = new List<CharacterItem>();
 

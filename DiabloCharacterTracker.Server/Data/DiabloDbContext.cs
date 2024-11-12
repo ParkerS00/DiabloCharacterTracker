@@ -111,6 +111,8 @@ public partial class DiabloDbContext : DbContext
             entity.Property(e => e.IsMythic).HasColumnName("is_mythic");
             entity.Property(e => e.ItemName).HasColumnName("item_name");
             entity.Property(e => e.Slot).HasColumnName("slot");
+            entity.Property(e => e.SlotType).HasColumnName("slot_type");
+            entity.Property(e => e.ImageUrl).HasColumnName("image_url");
         });
 
         modelBuilder.Entity<ItemAffix>(entity =>

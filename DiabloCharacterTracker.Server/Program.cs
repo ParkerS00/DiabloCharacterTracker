@@ -1,8 +1,10 @@
 using DiabloCharacterTracker.Server.Data;
 using DiabloCharacterTracker.Server.Services.AffixServices;
 using DiabloCharacterTracker.Server.Services.CharaterClassServices;
+using DiabloCharacterTracker.Server.Services.ItemAffixServices;
 using DiabloCharacterTracker.Server.Services.ItemServices;
 using DiabloCharacterTracker.Server.Services.PlayableCharacterServices;
+using DiabloCharacterTracker.Server.Services.SeedingServices;
 using DiabloCharacterTracker.Server.Services.SkillServices;
 using DiabloCharacterTracker.Server.Services.UserAccountServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -24,6 +26,10 @@ builder.Services.AddSingleton<IUserAccountService, UserAccountService>();
 builder.Services.AddSingleton<IPlayableCharacterService, PlayableCharacterService>();
 builder.Services.AddSingleton<IItemService, ItemService>(); 
 builder.Services.AddSingleton<IAffixService, AffixService>();
+builder.Services.AddSingleton<IItemAffixService, ItemAffixService>();
+builder.Services.AddScoped<ItemSeedingService>();
+
+builder.Services.AddHttpClient();
 
 builder.Services.AddDbContextFactory<DiabloDbContext>(config => config.UseNpgsql(builder.Configuration.GetConnectionString("diablodb"), builder =>
 {

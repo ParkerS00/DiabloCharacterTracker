@@ -84,6 +84,8 @@ public static class DTOConverter
             Name = item.ItemName,
             IsMythic = item.IsMythic,
             Slot = item.Slot,
+            ImageUrl = item.ImageUrl,
+            SlotType = item.SlotType
         };
     }
 
@@ -100,6 +102,20 @@ public static class DTOConverter
             Label = affix.AffixLabel,
             Name = affix.AffixName,
         };
+    }
 
+    public static ItemAffixDTO ToDTO(this ItemAffix itemAffix)
+    {
+        if (itemAffix == null)
+        {
+            return new ItemAffixDTO();
+        }
+
+        return new ItemAffixDTO()
+        {
+            Id = itemAffix.Id,
+            AffixId = itemAffix.AffixId,
+            ItemId = itemAffix.ItemId,
+        };
     }
 }
