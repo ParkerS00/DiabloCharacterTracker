@@ -1,5 +1,6 @@
 using DiabloCharacterTracker.Server.Data;
 using DiabloCharacterTracker.Server.Services.AffixServices;
+using DiabloCharacterTracker.Server.Services.CharacterItemServices;
 using DiabloCharacterTracker.Server.Services.CharaterClassServices;
 using DiabloCharacterTracker.Server.Services.ItemAffixServices;
 using DiabloCharacterTracker.Server.Services.ItemServices;
@@ -27,6 +28,8 @@ builder.Services.AddSingleton<IPlayableCharacterService, PlayableCharacterServic
 builder.Services.AddSingleton<IItemService, ItemService>(); 
 builder.Services.AddSingleton<IAffixService, AffixService>();
 builder.Services.AddSingleton<IItemAffixService, ItemAffixService>();
+builder.Services.AddSingleton<ICharacterItemService, CharacterItemService>();
+
 builder.Services.AddScoped<ItemSeedingService>();
 
 builder.Services.AddHttpClient();

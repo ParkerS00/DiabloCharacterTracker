@@ -118,4 +118,19 @@ public static class DTOConverter
             ItemId = itemAffix.ItemId,
         };
     }
+
+    public static CharacterItemDTO ToDTO(this CharacterItem characterItem) 
+    { 
+        if (characterItem == null)
+        {
+            return new CharacterItemDTO();
+        }
+
+        return new CharacterItemDTO()
+        {
+            Id = characterItem.Id,
+            ItemId = characterItem.ItemId,
+            PlayableCharacterId = characterItem.PlayableCharacterId,
+        };
+    }
 }
