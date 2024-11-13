@@ -22,9 +22,9 @@
 - [X] Home
 - [ ] Create Character
 - [ ] View All Character Builds
-- [ ] View All Armor
-- [ ] View All Weapons
-- [ ] View All Jewelry
+- [X] View All Armor
+- [X] View All Weapons
+- [X] View All Jewelry
 - [ ] View All Skills
 - [ ] Add Armor Piece To Character
 - [ ] Add Weapon To Character
@@ -32,11 +32,11 @@
 
 ### Technology
 - [ ] Use of Local Storage - 5pts
-- [ ] Client side state stores (e.g. context or react query) - 5pts
+- [X] Client side state stores (e.g. context or react query) - 5pts
 - [ ] Toasts / global notifications or alerts - 5pts
 - [ ] Error handling (both on api requests and render errors) - 5pts
-- [ ] Network Calls (Read data, Write data) - 5pts
-- [ ] Developer type helping (typescript) - 5pts
+- [X] Network Calls (Read data, Write data) - 5pts
+- [X] Developer type helping (typescript) - 5pts
 - [ ] 10+ pages/views via a router - 5pts
 - [X] CI/CD pipeline - 5pts
 - [ ] 3+ reusable form input components - 9pts
