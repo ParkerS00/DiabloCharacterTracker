@@ -8,8 +8,8 @@ const ItemCard = (item: Item) => {
         alt={item.name}
         className="w-full h-48 object-cover rounded-md mb-4"
       />
-      <h2 className="text-lg font-semibold text-gray-800">{item.name}</h2>
-      <p className="text-gray-600">Slot: {item.slotType}</p>
+      <h2 className="text-xl font-semibold text-blood-950">{item.name}</h2>
+      <p className="text-blood-200">Slot: {item.slotType}</p>
     </div>
   );
 };
