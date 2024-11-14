@@ -58,4 +58,20 @@ public class SkillService : ISkillService
 
         return skill.ToDTO();   
     }
+
+    public async Task<List<SkillDTO>> GetAllSkillsByClassName(string className)
+    {
+        using var context = await dbContextFactory.CreateDbContextAsync();
+
+        var skills = await context.Skills
+            .Where(x => x.ClassName == className)
+            .ToListAsync();
+
+        if (skills == null)
+        {
+            return new List<SkillDTO>();
+        }
+
+        return skills.Select(x => x.ToDTO()).ToList();  
+    }
 }

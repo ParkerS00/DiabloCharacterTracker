@@ -170,6 +170,8 @@ public partial class DiabloDbContext : DbContext
             entity.Property(e => e.IsUltimate).HasColumnName("is_ultimate");
             entity.Property(e => e.MaxPointsAlloted).HasColumnName("max_points_alloted");
             entity.Property(e => e.SkillName).HasColumnName("skill_name");
+            entity.Property(e => e.ImageUrl).HasColumnName("image_url");
+            entity.Property(e => e.ClassName).HasColumnName("class_name");
         });
 
         modelBuilder.Entity<UserAccount>(entity =>

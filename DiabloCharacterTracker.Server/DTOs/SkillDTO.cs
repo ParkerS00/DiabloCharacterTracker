@@ -8,4 +8,5 @@ public class SkillDTO
     public string? Description { get; set; } 
     public bool? IsUltimate { get; set; }
     public bool? IsPassive { get; set; }
+    public string? ImageUrl { get; set; }
 }

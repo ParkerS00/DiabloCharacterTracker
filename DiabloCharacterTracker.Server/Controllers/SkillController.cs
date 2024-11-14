@@ -32,4 +32,10 @@ public class SkillController : Controller
     {
         return await skillService.GetSkillByName(skillName);
     }
+
+    [HttpGet("getallskillsbyclassname")]
+    public async Task<List<SkillDTO>> GetAllSkillsByClassName(string className)
+    {
+        return await skillService.GetAllSkillsByClassName(className);
+    }
 }

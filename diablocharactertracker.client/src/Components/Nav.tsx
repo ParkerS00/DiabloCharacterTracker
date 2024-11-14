@@ -1,5 +1,6 @@
 import { useState } from "react";
 import LoginLogoutButton from "../Authentication/LoginLogoutButton";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,24 +39,24 @@ export const Navbar = () => {
           </div>
 
           <div className="hidden lg:flex space-x-4">
-            <a
-              href="/armor"
+            <Link
+              to="/armor"
               className="text-blood-200 hover:text-blood-50 rounded-md text-md font-medium"
             >
               Armor
-            </a>
-            <a
-              href="/weapons"
+            </Link>
+            <Link
+              to="/weapons"
               className="text-blood-200 hover:text-blood-50 rounded-md text-md font-medium"
             >
               Weapons
-            </a>
-            <a
-              href="/accessories"
+            </Link>
+            <Link
+              to="/accessories"
               className="text-blood-200 hover:text-blood-50 rounded-md text-md font-medium"
             >
               Accessories
-            </a>
+            </Link>
             <LoginLogoutButton />
           </div>
         </div>

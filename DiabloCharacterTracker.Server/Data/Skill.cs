@@ -17,5 +17,8 @@ public partial class Skill
 
     public bool? IsPassive { get; set; }
 
+    public string? ImageUrl {  get; set; }
+    public string? ClassName { get; set; }
+
     public virtual ICollection<CharacterSkill> CharacterSkills { get; set; } = new List<CharacterSkill>();
 }

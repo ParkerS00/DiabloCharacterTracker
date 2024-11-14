@@ -7,4 +7,5 @@ public interface ISkillService
     public Task<List<SkillDTO>> GetAllSkills();
     public Task<SkillDTO> GetSkillById(int skillId);
     public Task<SkillDTO> GetSkillByName(string skillName);
+    public Task<List<SkillDTO>> GetAllSkillsByClassName(string className);
 }

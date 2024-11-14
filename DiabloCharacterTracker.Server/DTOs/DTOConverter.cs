@@ -18,7 +18,8 @@ public static class DTOConverter
             IsPassive = skill.IsPassive,
             IsUltimate = skill.IsUltimate,
             MaxPointsAlloted = skill.MaxPointsAlloted,
-            SkillName = skill.SkillName 
+            SkillName = skill.SkillName,
+            ImageUrl = skill.ImageUrl,
         };
     }
 

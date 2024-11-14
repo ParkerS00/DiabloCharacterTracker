@@ -31,6 +31,7 @@ builder.Services.AddSingleton<IItemAffixService, ItemAffixService>();
 builder.Services.AddSingleton<ICharacterItemService, CharacterItemService>();
 
 builder.Services.AddScoped<ItemSeedingService>();
+builder.Services.AddScoped<SkillsSeedingService>();
 
 builder.Services.AddHttpClient();
 

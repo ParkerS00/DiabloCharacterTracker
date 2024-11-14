@@ -1,6 +1,7 @@
 ﻿using DiabloCharacterTracker.Server.Data;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using Microsoft.Extensions.Options;
 
 namespace DiabloCharacterTracker.Server.DTOs.Converters;
 
@@ -61,4 +62,3 @@ public class UniqueItemConverter : JsonConverter<UniqueItem>
         throw new NotImplementedException();
     }
 }
-
