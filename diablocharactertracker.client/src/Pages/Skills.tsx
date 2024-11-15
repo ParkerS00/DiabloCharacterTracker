@@ -1,29 +1,56 @@
-import SkillCard from "../Components/SkillCard";
+import { useState } from "react";
+import DisplayAllSkills from "../Components/DisplayAllSkills";
 import { SkillQueries } from "../Queries/SkillQueries";
+import SearchBar from "../Components/SearchBar";
+
+const classes = [
+  { name: "Rogue", key: "rogue" },
+  { name: "Sorcerer", key: "sorcerer" },
+  { name: "Barbarian", key: "barbarian" },
+  { name: "Druid", key: "druid" },
+  { name: "Necromancer", key: "necromancer" },
+  { name: "Spiritborn", key: "spiritborn" },
+];
 
 function Skills() {
+  const [activeClass, setActiveClass] = useState(classes[0].key);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+
   const {
-    data: rogueSkills,
-    isLoading: gettingRogue,
-    isSuccess: rogueSuccess,
-  } = SkillQueries.useGetAllSkillsByClassName("spiritborn");
+    data: skills,
+    isLoading: gettingSkills,
+    isSuccess,
+  } = SkillQueries.useGetAllSkillsByClassName(activeClass);
+
+  const filteredSkill = skills?.filter((skill) =>
+    skill.skillName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())
+  );
 
   return (
     <div className="bg-blood-800 min-h-screen">
-      {gettingRogue ? (
-        <div className="flex flex-col justify-center items-center h-full p-6 space-y-2">
-          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-white"></div>
-          <div className="text-white">Loading...</div>
-        </div>
-      ) : rogueSuccess ? (
-        <div className="p-6 h-full flex flex-col items-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 skill:grid-cols-3 lg:grid-cols-4 gap-4 mt-6 w-full max-w-screen-xl">
-            {rogueSkills?.map((skill) => (
-              <SkillCard skill={skill} />
-            ))}
-          </div>
-        </div>
-      ) : null}
+      <div className="flex justify-center space-x-4 py-4 bg-blood-900 text-white flex-wrap gap-2">
+        {classes.map((classItem) => (
+          <button
+            key={classItem.key}
+            className={`px-4 py-2 rounded ${
+              activeClass === classItem.key
+                ? "bg-blood-400"
+                : "bg-blood-700 hover:bg-blood-600"
+            }`}
+            onClick={() => setActiveClass(classItem.key)}
+          >
+            {classItem.name}
+          </button>
+        ))}
+      </div>
+      <div className="pt-2 h-full flex flex-col items-center">
+        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      </div>
+      <DisplayAllSkills
+        skills={filteredSkill ?? []}
+        gettingSkills={gettingSkills}
+        isSuccess={isSuccess}
+      />
     </div>
   );
 }
