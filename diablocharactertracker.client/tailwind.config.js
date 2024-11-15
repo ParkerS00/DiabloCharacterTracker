@@ -20,6 +20,10 @@ module.exports = {
           50: "hsl(0, 28%, 92%)",
         },
       },
+      screens: {
+        'skill': '890px', 
+        'item': '1152px'
+      },
     },
   },
   plugins: [],

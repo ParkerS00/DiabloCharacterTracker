@@ -5,6 +5,7 @@ import Home from "./Home";
 import Armor from "./Armor";
 import Weapons from "./Weapons";
 import Accessories from "./Accessories";
+import Skills from "./Skills";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="/armor" element={<Armor />} />
             <Route path="/weapons" element={<Weapons />} />
             <Route path="/accessories" element={<Accessories />} />
+            <Route path="/skills" element={<Skills />} />
           </Routes>
         </div>
       </QueryClientProvider>

@@ -57,6 +57,12 @@ export const Navbar = () => {
             >
               Accessories
             </Link>
+            <Link
+              to="/skills"
+              className="text-blood-200 hover:text-blood-50 rounded-md text-md font-medium"
+            >
+              Skills
+            </Link>
             <LoginLogoutButton />
           </div>
         </div>
@@ -67,24 +73,30 @@ export const Navbar = () => {
           isMenuOpen ? "block" : "hidden"
         } bg-blood-500 px-4 py-2 space-y-2 flex flex-col items-end`}
       >
-        <a
-          href="/armor"
+        <Link
+          to="/armor"
           className="text-blood-200 hover:text-blood-50 rounded-md text-md font-medium text-right"
         >
           Armor
-        </a>
-        <a
-          href="/weapons"
+        </Link>
+        <Link
+          to="/weapons"
           className="text-blood-200 hover:text-blood-50 rounded-md text-md font-medium text-right"
         >
           Weapons
-        </a>
-        <a
-          href="/accessories"
+        </Link>
+        <Link
+          to="/accessories"
           className="text-blood-200 hover:text-blood-50 rounded-md text-md font-medium text-right"
         >
           Accessories
-        </a>
+        </Link>
+        <Link
+          to="/skills"
+          className="text-blood-200 hover:text-blood-50 rounded-md text-md font-medium text-right"
+        >
+          Skills
+        </Link>
         <div className="text-right">
           <LoginLogoutButton />
         </div>

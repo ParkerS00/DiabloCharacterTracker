@@ -27,7 +27,7 @@ function Armor() {
         <div className="p-6 h-full flex flex-col items-center">
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 w-full max-w-screen-lg">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 w-full max-w-screen-item">
             {filteredArmor?.map((item) => (
               <ItemCard key={item.id} item={item} />
             ))}
