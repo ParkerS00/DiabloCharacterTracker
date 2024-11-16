@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ItemCard from "../Components/AllItemCard";
+import ItemCard from "../Components/ItemCard";
 import { ItemQueries } from "../Queries/ItemQueries";
 import SearchBar from "../Components/SearchBar";
 

@@ -4,7 +4,7 @@ interface ItemCardProps {
   item: Item;
 }
 
-const ItemCard: React.FC<ItemCardProps> = ({item }) => {
+const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
   return (
     <div className="bg-blood-500 rounded-md shadow-md p-4 max-w-xs text-center">
       <img

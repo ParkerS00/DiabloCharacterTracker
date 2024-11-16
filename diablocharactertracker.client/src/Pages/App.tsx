@@ -6,6 +6,8 @@ import Armor from "./Armor";
 import Weapons from "./Weapons";
 import Accessories from "./Accessories";
 import Skills from "./Skills";
+import ViewArmor from "./ViewArmor";
+import { UserAccountContextProvider } from "../Contexts/UserContext";
 
 const queryClient = new QueryClient();
 
@@ -13,16 +15,19 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <div className="App">
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/armor" element={<Armor />} />
-            <Route path="/weapons" element={<Weapons />} />
-            <Route path="/accessories" element={<Accessories />} />
-            <Route path="/skills" element={<Skills />} />
-          </Routes>
-        </div>
+        <UserAccountContextProvider>
+          <div className="App">
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/armor" element={<Armor />} />
+              <Route path="/weapons" element={<Weapons />} />
+              <Route path="/accessories" element={<Accessories />} />
+              <Route path="/skills" element={<Skills />} />
+              <Route path="/armor/:armorId" element={<ViewArmor />} />
+            </Routes>
+          </div>
+        </UserAccountContextProvider>
       </QueryClientProvider>
     </>
   );
