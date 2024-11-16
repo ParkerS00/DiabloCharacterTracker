@@ -25,7 +25,7 @@
 - [X] View All Armor
 - [X] View All Weapons
 - [X] View All Jewelry
-- [ ] View All Skills
+- [X] View All Skills
 - [ ] Add Armor Piece To Character
 - [ ] Add Weapon To Character
 - [ ] Add Jewelry To Character
@@ -39,8 +39,8 @@
 - [X] Developer type helping (typescript) - 5pts
 - [ ] 10+ pages/views via a router - 5pts
 - [X] CI/CD pipeline - 5pts
-- [ ] 3+ reusable form input components - 9pts
-- [ ] 4+ reusable layout components - 12pts
+- [X] 3+ reusable form input components - 9pts
+- [X] 4+ reusable layout components - 12pts
 - [X] Authentication and User Account Support - 10pts
 - [ ] Authorized and Public Pages - 5pts
 - [ ] Mobile Friendtly - 5pts
