@@ -34,7 +34,7 @@ public class SeedingController : Controller
     {
         try
         {
-            await skillSeedingService.SeedSkillsAsync("https://d4api.dev/api/class/rogue/skills");
+            await skillSeedingService.SeedSkillsAsync("https://d4api.dev/api/class/rogue/skills", "rogue");
             return Ok("Skill seeding completed successfully");
         }
         catch (Exception ex)

@@ -27,7 +27,7 @@ public class SkillsSeedingService
         this._httpClientFactory = httpClientFactory;
     }
 
-    public async Task SeedSkillsAsync(string apiEndpoint)
+    public async Task SeedSkillsAsync(string apiEndpoint, string className)
     {
         using var context = await dbContextFactory.CreateDbContextAsync();
         try
@@ -47,7 +47,7 @@ public class SkillsSeedingService
                         MaxPointsAlloted = apiSkill.max_points,
                         Description = apiSkill.description,
                         ImageUrl = apiSkill.image_url,
-                        ClassName = "rogue",
+                        ClassName = className,
                         IsPassive = false,
                         IsUltimate = false,
                     };
