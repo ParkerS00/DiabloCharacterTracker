@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import keys from "../QueryKeys/UserAccountKeys";
-import { UserAccountServices } from "../ApiServices/UserAccountServices";
+import { UserAccountServices } from "../ApiServices/UserAccountService";
 import { AddUserAccountRequest } from "../Data/Requests/AddRequests/AddUserAccountRequest";
 import { GetuserAccountRequest } from "../Data/Requests/GetRequests/GetUserAccountRequest";
 
