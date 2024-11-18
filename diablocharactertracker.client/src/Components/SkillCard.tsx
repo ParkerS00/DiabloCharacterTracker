@@ -1,4 +1,4 @@
-import { Skill } from "../Data/DTOs/Skill";
+import { Skill } from "../Data/DTOs/skill";
 
 interface SkillCardProps {
   skill: Skill;
