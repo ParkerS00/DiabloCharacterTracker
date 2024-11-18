@@ -1,4 +1,4 @@
-import { CharacterClass } from "@/Data/DTOs/CharacterClass";
+import { CharacterClass } from "../Data/DTOs/CharacterClass";
 import axios from "axios";
 
 export const CharacterClassService = {

@@ -1,4 +1,4 @@
-import { CharacterClassService } from "@/ApiServices/CharacterClassService";
+import { CharacterClassService } from "../ApiServices/CharacterClassService";
 import { useQuery } from "@tanstack/react-query";
 import keys from "../QueryKeys/CharacterClassKeys";
 
