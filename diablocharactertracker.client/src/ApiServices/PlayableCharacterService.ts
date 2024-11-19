@@ -74,4 +74,20 @@ export const PlayableCharacterService = {
       throw error;
     }
   },
+  GetAllCharactersForUser: async (userAccountId: number) => {
+    try {
+      const resposne = await axios.get<PlayableCharacter[]>(
+        `${import.meta.env.VITE_URL}/PlayableCharacter/getallcharacterforuser`,
+        {
+          params: {
+            userAccountId,
+          },
+        }
+      );
+      return resposne.data;
+    } catch (error) {
+      console.error("Failed to get all characters for user");
+      throw error;
+    }
+  },
 };

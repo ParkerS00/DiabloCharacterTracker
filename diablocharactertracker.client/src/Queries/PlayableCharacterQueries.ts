@@ -47,4 +47,11 @@ export const PlayableCharacterQueries = {
         }),
     });
   },
+  useGetAllCharactersForUser: (userAccountId: number) => {
+    return useQuery({
+      queryFn: () =>
+        PlayableCharacterService.GetAllCharactersForUser(userAccountId),
+      queryKey: keys.GetAllCharactersForUser,
+    });
+  },
 };

@@ -10,6 +10,10 @@ const PlayableCharacterKeys = {
     "PlayableCharacter",
     "DeletePlayableCharacter",
   ] as const,
+  GetAllCharactersForUser: [
+    "PlayableCharacter",
+    "GetAllCharactersForUser",
+  ] as const,
 };
 
 export default PlayableCharacterKeys;

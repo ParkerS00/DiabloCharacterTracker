@@ -65,6 +65,24 @@ public class PlayableCharacterService : IPlayableCharacterService
         return true;
     }
 
+    public async Task<List<PlayableCharacterDTO>> GetAllCharactersForUser(int userAccountId)
+    {
+        using var context = await dbContextFactory.CreateDbContextAsync();
+
+        var characters = await context.PlayableCharacters
+            .Include(x => x.CharacterClass)
+            .Include(x => x.UserAccount)
+            .Where(x => x.UserAccountId == userAccountId)
+            .ToListAsync();
+
+        if (characters == null)
+        {
+             return new List<PlayableCharacterDTO>();
+        }
+
+        return characters.Select(x => x.ToDTO()).ToList();
+    }
+
     public async Task<PlayableCharacterDTO> GetCharachterById(int characterId)
     {
         using var context = await dbContextFactory.CreateDbContextAsync();

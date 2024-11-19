@@ -10,4 +10,5 @@ public interface IPlayableCharacterService
     public Task<int> AddCharacter(AddPlayableCharacterRequest request);
     public Task<PlayableCharacterDTO> UpdateCharacter(UpdatePlayableCharacterRequest request);
     public Task<bool> DeleteCharacter(int characterId);
+    public Task<List<PlayableCharacterDTO>> GetAllCharactersForUser(int userAccountId);
 }

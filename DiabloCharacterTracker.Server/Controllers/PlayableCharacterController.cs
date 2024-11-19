@@ -3,6 +3,7 @@ using DiabloCharacterTracker.Server.Requests.AddRequests;
 using DiabloCharacterTracker.Server.Requests.UpdateRequests;
 using DiabloCharacterTracker.Server.Services.PlayableCharacterServices;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.Versioning;
 
 namespace DiabloCharacterTracker.Server.Controllers;
 
@@ -39,5 +40,11 @@ public class PlayableCharacterController
     public async Task<bool> DeletePlayableCharacter(int characterId)
     {
         return await playableCharacterService.DeleteCharacter(characterId);
+    }
+
+    [HttpGet("getallcharacterforuser")]
+    public async Task<List<PlayableCharacterDTO>> GetAllCharacterForUser(int userAccountId)
+    {
+        return await playableCharacterService.GetAllCharactersForUser(userAccountId);
     }
 }
