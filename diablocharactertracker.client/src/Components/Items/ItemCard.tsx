@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Item } from "../../Data/DTOs/Item";
 
 interface ItemCardProps {
@@ -6,7 +7,10 @@ interface ItemCardProps {
 
 const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
   return (
-    <div className="bg-blood-500 rounded-md shadow-md p-4 max-w-xs text-center">
+    <Link
+      to={`/${item.slot}/${item.id}`}
+      className="bg-blood-500 rounded-md shadow-md p-4 max-w-xs text-center"
+    >
       <img
         src={item.imageUrl}
         alt={item.name}
@@ -14,7 +18,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
       />
       <h2 className="text-xl font-semibold text-blood-950">{item.name}</h2>
       <p className="text-blood-200">Slot: {item.slotType}</p>
-    </div>
+    </Link>
   );
 };
 

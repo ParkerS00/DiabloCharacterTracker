@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useAuth } from "react-oidc-context";
 import { Item } from "../../Data/DTOs/Item";
-import { AddModal } from "../AddModal";
+import { AddItemModal } from "../Items/AddItemModal";
+import {
+  UserAccountContext,
+  UserAccountContextInterface,
+} from "../../Data/Context/UserAccountContext";
 
 interface AddButtonProps {
   item: Item;
@@ -9,9 +13,9 @@ interface AddButtonProps {
 
 const AddButton: React.FC<AddButtonProps> = ({ item }) => {
   const { isAuthenticated } = useAuth();
-  // const { usr } = React.useContext(
-  //   UserAccountContext
-  // ) as UserAccountContextInterface;
+  const { usr } = React.useContext(
+    UserAccountContext
+  ) as UserAccountContextInterface;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -28,7 +32,13 @@ const AddButton: React.FC<AddButtonProps> = ({ item }) => {
         >
           Add
         </button>
-        {isModalOpen && <AddModal onClose={handleModal} item={item} />}
+        {isModalOpen && (
+          <AddItemModal
+            onClose={handleModal}
+            item={item}
+            userId={usr?.id ?? 0}
+          />
+        )}
       </>
     )
   );
