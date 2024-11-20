@@ -1,6 +1,5 @@
 import { Item } from "../../Data/DTOs/Item";
 import AddButton from "../Buttons/AddButton";
-import RemoveButton from "../Buttons/RemoveButton";
 
 interface AddItemComponentProps {
   item: Item;
@@ -30,7 +29,6 @@ const AddItemComponent: React.FC<AddItemComponentProps> = ({ item }) => {
           </p>
           <div className="flex justify-between mt-4 w-full">
             <AddButton item={item} />
-            <RemoveButton />
           </div>
         </div>
       </div>

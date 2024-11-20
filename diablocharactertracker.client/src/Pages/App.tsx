@@ -11,6 +11,8 @@ import { UserAccountContextProvider } from "../Contexts/UserContext";
 import Character from "./Character";
 import { Toaster } from "react-hot-toast";
 import { ErrorBoundary } from "react-error-boundary";
+import ViewWeapon from "./ViewWeapon";
+import ViewAccessory from "./ViewAccessory";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +32,11 @@ function App() {
                 <Route path="/accessories" element={<Accessories />} />
                 <Route path="/skills" element={<Skills />} />
                 <Route path="/armor/:armorId" element={<ViewArmor />} />
+                <Route path="/weapon/:weaponId" element={<ViewWeapon />} />
+                <Route
+                  path="/accessory/:accessoryId"
+                  element={<ViewAccessory />}
+                />
               </Routes>
               <Toaster position="top-center" gutter={2} />
             </div>

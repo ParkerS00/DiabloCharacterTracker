@@ -9,9 +9,6 @@ function Home() {
             playable in diablo 4 including the Barbarian, Druid, Srocerer,
             Necromancer, Rogue, and the new Spiritborn.
           </p>
-          <button className="block mt-4 px-4 py-2 bg-blood-600 text-blood-50 rounded-lg shadow-md hover:bg-blood-800">
-            Learn More
-          </button>
         </div>
         <div className="flex justify-center items-center w-auto h-auto">
           <img
