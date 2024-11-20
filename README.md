@@ -20,21 +20,21 @@
 
 ### Pages
 - [X] Home
-- [ ] Create Character
+- [X] Create Character
 - [ ] View All Character Builds
 - [X] View All Armor
 - [X] View All Weapons
 - [X] View All Jewelry
 - [X] View All Skills
-- [ ] Add Armor Piece To Character
-- [ ] Add Weapon To Character
-- [ ] Add Jewelry To Character
+- [X] Add Armor Piece To Character
+- [X] Add Weapon To Character
+- [X] Add Jewelry To Character
 
 ### Technology
 - [ ] Use of Local Storage - 5pts
 - [X] Client side state stores (e.g. context or react query) - 5pts
-- [ ] Toasts / global notifications or alerts - 5pts
-- [ ] Error handling (both on api requests and render errors) - 5pts
+- [X] Toasts / global notifications or alerts - 5pts
+- [X] Error handling (both on api requests and render errors) - 5pts
 - [X] Network Calls (Read data, Write data) - 5pts
 - [X] Developer type helping (typescript) - 5pts
 - [ ] 10+ pages/views via a router - 5pts
@@ -42,9 +42,9 @@
 - [X] 3+ reusable form input components - 9pts
 - [X] 4+ reusable layout components - 12pts
 - [X] Authentication and User Account Support - 10pts
-- [ ] Authorized and Public Pages - 5pts
-- [ ] Mobile Friendtly - 5pts
-- [ ] 3 Instances Where Elements Re-Order Based on Screen Size - 5pts
+- [X] Authorized and Public Pages - 5pts
+- [ ] Mobile Friendly - 5pts
+- [X] 3 Instances Where Elements Re-Order Based on Screen Size - 5pts
 - [ ] Professional, Organized and Smooth Experience - 20pts
 
 ### Nov 6
