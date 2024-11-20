@@ -4,4 +4,5 @@ export interface CharacterClass {
   description: string;
   resource: string;
   itemSlots: number;
+  imageUrl: string;
 }

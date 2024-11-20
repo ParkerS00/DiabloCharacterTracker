@@ -1,7 +1,8 @@
 import { useState } from "react";
-import ItemCard from "../Components/ItemCard";
 import { ItemQueries } from "../Queries/ItemQueries";
 import SearchBar from "../Components/SearchBar";
+import Loading from "../Components/Loading";
+import ItemCard from "../Components/Items/ItemCard";
 
 function Weapons() {
   const {
@@ -19,10 +20,7 @@ function Weapons() {
   return (
     <div className="bg-blood-800 min-h-screen">
       {gettingWeapons ? (
-        <div className="flex flex-col justify-center items-center h-full p-6 space-y-2">
-          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-white"></div>
-          <div className="text-white">Loading...</div>
-        </div>
+        <Loading />
       ) : weaponsSuccess ? (
         <div className="p-6 h-full flex flex-col items-center">
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />

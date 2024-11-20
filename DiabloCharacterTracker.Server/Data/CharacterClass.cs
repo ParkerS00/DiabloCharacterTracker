@@ -14,6 +14,7 @@ public partial class CharacterClass
     public string? Resource { get; set; }
 
     public int? ItemSlots { get; set; }
+    public string? ImageUrl { get; set; }
 
     public virtual ICollection<PlayableCharacter> PlayableCharacters { get; set; } = new List<PlayableCharacter>();
 }

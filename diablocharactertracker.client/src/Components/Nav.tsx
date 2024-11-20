@@ -1,9 +1,11 @@
 import { useState } from "react";
 import LoginLogoutButton from "../Authentication/LoginLogoutButton";
 import { Link } from "react-router-dom";
+import { useAuth } from "react-oidc-context";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isAuthenticated } = useAuth();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -39,12 +41,14 @@ export const Navbar = () => {
           </div>
 
           <div className="hidden lg:flex space-x-4">
-            <Link
-              to="/character"
-              className="text-blood-200 hover:text-blood-50 rounded-md text-md font-medium"
-            >
-              Character
-            </Link>
+            {isAuthenticated && (
+              <Link
+                to="/character"
+                className="text-blood-200 hover:text-blood-50 rounded-md text-md font-medium"
+              >
+                Characters
+              </Link>
+            )}
             <Link
               to="/armor"
               className="text-blood-200 hover:text-blood-50 rounded-md text-md font-medium"
@@ -79,12 +83,14 @@ export const Navbar = () => {
           isMenuOpen ? "block" : "hidden"
         } bg-blood-500 px-4 py-2 space-y-2 flex flex-col items-end`}
       >
-        <Link
-          to="/character"
-          className="text-blood-200 hover:text-blood-50 rounded-md text-md font-medium text-right"
-        >
-          Character
-        </Link>
+        {isAuthenticated && (
+          <Link
+            to="/character"
+            className="text-blood-200 hover:text-blood-50 rounded-md text-md font-medium text-right"
+          >
+            Characters
+          </Link>
+        )}
         <Link
           to="/armor"
           className="text-blood-200 hover:text-blood-50 rounded-md text-md font-medium text-right"

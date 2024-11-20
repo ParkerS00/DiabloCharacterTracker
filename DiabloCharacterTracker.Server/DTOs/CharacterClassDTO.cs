@@ -7,4 +7,5 @@ public class CharacterClassDTO
     public string? Description { get; set; }
     public string? Resource {  get; set; }
     public int? ItemSlots { get; set; } 
+    public string? ImageUrl { get; set; }
 }

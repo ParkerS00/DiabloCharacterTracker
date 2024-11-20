@@ -1,4 +1,4 @@
-import { Item } from "../Data/DTOs/Item";
+import { Item } from "../../Data/DTOs/Item";
 
 interface ItemCardProps {
   item: Item;

@@ -37,6 +37,7 @@ public static class DTOConverter
             Id = characterClass.Id,
             ItemSlots = characterClass.ItemSlots,
             Resource = characterClass.Resource,
+            ImageUrl = characterClass.ImageUrl
         };
     }
 

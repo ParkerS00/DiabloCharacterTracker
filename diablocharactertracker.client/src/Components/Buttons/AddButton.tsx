@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "react-oidc-context";
-import { AddModal } from "./AddModal";
-import { Item } from "@/Data/DTOs/Item";
+import { Item } from "../../Data/DTOs/Item";
+import { AddModal } from "../AddModal";
 
 interface AddButtonProps {
   item: Item;

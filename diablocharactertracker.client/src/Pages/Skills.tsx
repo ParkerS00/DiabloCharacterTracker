@@ -1,5 +1,5 @@
 import { useState } from "react";
-import DisplayAllSkills from "../Components/DisplayAllSkills";
+import DisplayAllSkills from "../Components/Skills/DisplayAllSkills";
 import { SkillQueries } from "../Queries/SkillQueries";
 import SearchBar from "../Components/SearchBar";
 

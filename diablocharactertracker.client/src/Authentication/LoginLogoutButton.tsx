@@ -48,7 +48,7 @@ export default function LoginLogoutButton() {
   if (auth.isAuthenticated) {
     return (
       <div className="text-blood-200 rounded-md text-md font-medium">
-        Hello {auth.user?.profile.name}
+        {/* Hello {auth.user?.profile.name} */}
         <button
           onClick={() => void auth.removeUser()}
           className=" hover:text-slate-50 pl-2"

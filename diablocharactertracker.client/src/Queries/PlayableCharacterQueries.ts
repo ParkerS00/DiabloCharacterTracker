@@ -19,7 +19,9 @@ export const PlayableCharacterQueries = {
       mutationFn: () =>
         PlayableCharacterService.AddCharacter(addCharacterRequest),
       onSuccess: () =>
-        queryClient.invalidateQueries({ queryKey: keys.AddPlayableCharacter }),
+        queryClient.invalidateQueries({
+          queryKey: keys.GetAllCharactersForUser,
+        }),
     });
   },
   useUpdatePlayableCharacter: (

@@ -57,6 +57,7 @@ public partial class DiabloDbContext : DbContext
             entity.Property(e => e.Description).HasColumnName("description");
             entity.Property(e => e.ItemSlots).HasColumnName("item_slots");
             entity.Property(e => e.Resource).HasColumnName("resource");
+            entity.Property(e => e.ImageUrl).HasColumnName("image_url");
         });
 
         modelBuilder.Entity<CharacterItem>(entity =>

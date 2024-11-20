@@ -1,6 +1,6 @@
-import { Item } from "../Data/DTOs/Item";
-import AddButton from "./AddButton";
-import RemoveButton from "./RemoveButton";
+import { Item } from "../../Data/DTOs/Item";
+import AddButton from "../Buttons/AddButton";
+import RemoveButton from "../Buttons/RemoveButton";
 
 interface AddItemComponentProps {
   item: Item;
