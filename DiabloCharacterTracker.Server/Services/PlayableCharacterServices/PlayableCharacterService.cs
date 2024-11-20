@@ -20,7 +20,7 @@ public class PlayableCharacterService : IPlayableCharacterService
         using var context = await dbContextFactory.CreateDbContextAsync();
 
         var possibleCharacter = await context.PlayableCharacters
-            .Where(x => x.Name == request.Name!.ToLower())
+            .Where(x => x.Name!.ToLower() == request.Name!.ToLower())
             .Where(x => x.CharacterClassId == request.ClassId)
             .Where(x => x.UserAccountId == request.UserAccountId)
             .FirstOrDefaultAsync();

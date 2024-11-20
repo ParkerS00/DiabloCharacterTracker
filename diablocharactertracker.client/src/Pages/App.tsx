@@ -9,28 +9,33 @@ import Skills from "./Skills";
 import ViewArmor from "./ViewArmor";
 import { UserAccountContextProvider } from "../Contexts/UserContext";
 import Character from "./Character";
+import { Toaster } from "react-hot-toast";
+import { ErrorBoundary } from "react-error-boundary";
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
     <>
-      <QueryClientProvider client={queryClient}>
-        <UserAccountContextProvider>
-          <div className="App">
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/armor" element={<Armor />} />
-              <Route path="/weapons" element={<Weapons />} />
-              <Route path="/character" element={<Character />} />
-              <Route path="/accessories" element={<Accessories />} />
-              <Route path="/skills" element={<Skills />} />
-              <Route path="/armor/:armorId" element={<ViewArmor />} />
-            </Routes>
-          </div>
-        </UserAccountContextProvider>
-      </QueryClientProvider>
+      <ErrorBoundary fallback={<div>Something went wrong</div>}>
+        <QueryClientProvider client={queryClient}>
+          <UserAccountContextProvider>
+            <div className="App">
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/armor" element={<Armor />} />
+                <Route path="/weapons" element={<Weapons />} />
+                <Route path="/character" element={<Character />} />
+                <Route path="/accessories" element={<Accessories />} />
+                <Route path="/skills" element={<Skills />} />
+                <Route path="/armor/:armorId" element={<ViewArmor />} />
+              </Routes>
+              <Toaster position="top-center" gutter={2} />
+            </div>
+          </UserAccountContextProvider>
+        </QueryClientProvider>
+      </ErrorBoundary>
     </>
   );
 }

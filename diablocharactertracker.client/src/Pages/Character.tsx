@@ -33,12 +33,14 @@ function Character() {
     <div className="bg-blood-800 min-h-screen">
       <div className="p-6 flex justify-between items-center">
         <h1 className="text-3xl font-bold text-white">Your Characters</h1>
-        <AddCharacterButton handleOpenModal={handleOpenModal} />
+        {isAuthenticated && (
+          <AddCharacterButton handleOpenModal={handleOpenModal} />
+        )}
       </div>
 
       {isLoading && <Loading />}
 
-      {isSuccess && userCharacters?.length > 0 && (
+      {isSuccess && (
         <div className="p-6 h-full flex flex-col items-center">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 w-full max-w-screen-lg">
             {userCharacters.map((character) => (

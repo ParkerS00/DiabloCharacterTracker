@@ -16,6 +16,16 @@ public class CharacterItemService : ICharacterItemService
     {
         using var context = await dbContextFactory.CreateDbContextAsync();
 
+        var possibleCharacterItem = await context.CharacterItems
+            .Where(x => x.PlayableCharacterId == request.PlayableCharacterId)
+            .Where(x => x.ItemId == request.ItemId)
+            .FirstOrDefaultAsync();
+
+        if (possibleCharacterItem != null)
+        {
+            return 0;
+        }
+
         CharacterItem newCharacterItem = new CharacterItem()
         {
             ItemId = request.ItemId,

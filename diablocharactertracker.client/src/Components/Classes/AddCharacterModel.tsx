@@ -5,6 +5,7 @@ import CancelCharacterButton from "./CancelCharacterButton";
 import { AddPlayableCharacterRequest } from "../../Data/Requests/AddRequests/AddPlayableCharacterRequest";
 import { CharacterClassQueries } from "../../Queries/CharacterClassQueries";
 import { PlayableCharacterQueries } from "../../Queries/PlayableCharacterQueries";
+import toast from "react-hot-toast";
 
 interface AddCharacterModalProps {
   onClose: () => void;
@@ -34,8 +35,20 @@ const AddCharacterModal: React.FC<AddCharacterModalProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    AddPlayableCharacter();
-    onClose();
+
+    AddPlayableCharacter(undefined, {
+      onSuccess: (newId) => {
+        if (newId === 0) {
+          toast.error("Playable Character already exists");
+        } else {
+          toast.success("Playable Character added successfully");
+          onClose();
+        }
+      },
+      onError: () => {
+        toast.error("Failed to add Playable Character");
+      },
+    });
   };
 
   return (
