@@ -1,17 +1,16 @@
-import React, { useState } from "react";
-import { useAuth } from "react-oidc-context";
-import { Item } from "../../Data/DTOs/Item";
 import {
   UserAccountContext,
   UserAccountContextInterface,
 } from "../../Data/Context/UserAccountContext";
-import AddItemModal from "../Items/AddItemModal";
+import { Skill } from "../../Data/DTOs/skill";
+import React, { useState } from "react";
+import { useAuth } from "react-oidc-context";
 
-interface AddButtonProps {
-  item: Item;
+interface OpenAddSkillModalProps {
+  skill: Skill;
 }
 
-const AddButton: React.FC<AddButtonProps> = ({ item }) => {
+const OpenAddSkillModal: React.FC<OpenAddSkillModalProps> = ({ skill }) => {
   const { isAuthenticated } = useAuth();
   const { usr } = React.useContext(
     UserAccountContext
@@ -32,16 +31,10 @@ const AddButton: React.FC<AddButtonProps> = ({ item }) => {
         >
           Add
         </button>
-        {isModalOpen && (
-          <AddItemModal
-            onClose={handleModal}
-            item={item}
-            userId={usr?.id ?? 0}
-          />
-        )}
+        {isModalOpen && <div>{skill.skillName}</div>}
       </>
     )
   );
 };
 
-export default AddButton;
+export default OpenAddSkillModal;

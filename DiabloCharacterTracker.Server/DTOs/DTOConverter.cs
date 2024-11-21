@@ -135,4 +135,19 @@ public static class DTOConverter
             PlayableCharacterId = characterItem.PlayableCharacterId,
         };
     }
+
+    public static CharacterSkillDTO ToDTO(this CharacterSkill characterSkill)
+    {
+        if (characterSkill == null)
+        {
+            return new CharacterSkillDTO();
+        }
+
+        return new CharacterSkillDTO()
+        {
+            Id = characterSkill.Id,
+            PlayableCharacterId = characterSkill.PlayableCharacterId,
+            SkillId = characterSkill.SkillId,
+        };
+    }
 }

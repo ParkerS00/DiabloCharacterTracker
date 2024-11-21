@@ -13,6 +13,7 @@ import { Toaster } from "react-hot-toast";
 import { ErrorBoundary } from "react-error-boundary";
 import ViewWeapon from "./ViewWeapon";
 import ViewAccessory from "./ViewAccessory";
+import ViewSkill from "./ViewSkill";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ function App() {
                   path="/accessory/:accessoryId"
                   element={<ViewAccessory />}
                 />
+                <Route path="/skill/:skillId" element={<ViewSkill /> } />
               </Routes>
               <Toaster position="top-center" gutter={2} />
             </div>

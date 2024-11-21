@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Skill } from "../../Data/DTOs/skill";
 
 interface SkillCardProps {
@@ -6,7 +7,10 @@ interface SkillCardProps {
 
 const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
   return (
-    <div className="flex bg-blood-500 rounded-lg p-2 w-full max-w-xl">
+    <Link
+      to={`/skill/${skill.id}`}
+      className="flex bg-blood-500 rounded-lg p-2 w-full max-w-xl"
+    >
       <div className="mr-1 lg:mr-4">
         <img
           src={skill.imageUrl}
@@ -29,7 +33,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

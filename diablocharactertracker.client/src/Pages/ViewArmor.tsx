@@ -3,7 +3,7 @@ import AddItemComponent from "../Components/Items/AddItemComponenet";
 import { ItemQueries } from "../Queries/ItemQueries";
 import { useParams } from "react-router-dom";
 
-const ViewArmor = () => {
+function ViewArmor() {
   const { armorId } = useParams<{ armorId: string }>();
 
   const {
@@ -23,6 +23,6 @@ const ViewArmor = () => {
       )}
     </div>
   );
-};
+}
 
 export default ViewArmor;

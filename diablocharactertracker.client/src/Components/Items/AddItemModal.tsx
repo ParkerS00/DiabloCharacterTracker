@@ -13,11 +13,7 @@ interface AddModalProps {
   userId: number;
 }
 
-export const AddItemModal: React.FC<AddModalProps> = ({
-  onClose,
-  item,
-  userId,
-}) => {
+const AddItemModal: React.FC<AddModalProps> = ({ onClose, item, userId }) => {
   const [character, setCharacter] = useState("");
 
   const { data: characters } =
@@ -81,3 +77,5 @@ export const AddItemModal: React.FC<AddModalProps> = ({
     </div>
   );
 };
+
+export default AddItemModal;
