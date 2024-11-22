@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DisplayAllSkills from "../Components/Skills/DisplayAllSkills";
 import { SkillQueries } from "../Queries/SkillQueries";
 import SearchBar from "../Components/SearchBar";
@@ -7,8 +7,16 @@ import { skillCharacterClasses } from "../Components/Skills/skillCharacterClasse
 import Loading from "../Components/Loading";
 
 function Skills() {
-  const [activeClass, setActiveClass] = useState(skillCharacterClasses[0].key);
+  const [activeClass, setActiveClass] = useState(() => {
+    return (
+      localStorage.getItem("activeSkillClass") || skillCharacterClasses[0].key
+    );
+  });
   const [searchTerm, setSearchTerm] = useState<string>("");
+
+  useEffect(() => {
+    localStorage.setItem("activeSkillClass", activeClass);
+  }, [activeClass]);
 
   const {
     data: skills,
@@ -21,7 +29,7 @@ function Skills() {
   );
 
   if (gettingSkills) {
-    return <Loading />
+    return <Loading />;
   }
 
   return (

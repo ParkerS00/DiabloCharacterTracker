@@ -7,13 +7,21 @@ import SkillCard from "../Components/Skills/SkillCard";
 import Loading from "../Components/Loading";
 import { FilterComponent } from "../Components/Forms/FilterComponent";
 import { itemClasses } from "../Components/Items/itemClasses";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ViewCharacter = () => {
   const { characterId } = useParams<{ characterId: string }>();
   const { isAuthenticated } = useAuth();
 
-  const [activeClass, setActiveClass] = useState(itemClasses[0].key);
+  const [activeClass, setActiveClass] = useState(() => {
+    return (
+      localStorage.getItem("viewCharacterActiveClass") || itemClasses[0].key
+    );
+  });
+
+  useEffect(() => {
+    localStorage.setItem("viewCharacterActiveClass", activeClass);
+  }, [activeClass]);
 
   const { data: items, isLoading: gettingCharacters } =
     CharacterItemQueries.useGetAllItemsForCharacter(Number(characterId));
