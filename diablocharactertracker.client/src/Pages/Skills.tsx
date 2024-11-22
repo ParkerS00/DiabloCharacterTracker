@@ -2,18 +2,12 @@ import { useState } from "react";
 import DisplayAllSkills from "../Components/Skills/DisplayAllSkills";
 import { SkillQueries } from "../Queries/SkillQueries";
 import SearchBar from "../Components/SearchBar";
-
-const classes = [
-  { name: "Rogue", key: "rogue" },
-  { name: "Sorcerer", key: "sorcerer" },
-  { name: "Barbarian", key: "barbarian" },
-  { name: "Druid", key: "druid" },
-  { name: "Necromancer", key: "necromancer" },
-  { name: "Spiritborn", key: "spiritborn" },
-];
+import { FilterComponent } from "../Components/Forms/FilterComponent";
+import { skillCharacterClasses } from "../Components/Skills/skillCharacterClasses";
+import Loading from "../Components/Loading";
 
 function Skills() {
-  const [activeClass, setActiveClass] = useState(classes[0].key);
+  const [activeClass, setActiveClass] = useState(skillCharacterClasses[0].key);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   const {
@@ -26,23 +20,17 @@ function Skills() {
     skill.skillName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())
   );
 
+  if (gettingSkills) {
+    return <Loading />
+  }
+
   return (
     <div className="bg-blood-800 min-h-screen">
-      <div className="flex justify-center space-x-4 py-4 bg-blood-900 text-white flex-wrap gap-2">
-        {classes.map((classItem) => (
-          <button
-            key={classItem.key}
-            className={`px-4 py-2 rounded ${
-              activeClass === classItem.key
-                ? "bg-blood-400"
-                : "bg-blood-700 hover:bg-blood-600"
-            }`}
-            onClick={() => setActiveClass(classItem.key)}
-          >
-            {classItem.name}
-          </button>
-        ))}
-      </div>
+      <FilterComponent
+        classes={skillCharacterClasses}
+        activeClass={activeClass}
+        setActiveClass={setActiveClass}
+      />
       <div className="pt-2 h-full flex flex-col items-center">
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </div>

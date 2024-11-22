@@ -5,6 +5,7 @@ import {
 import { Skill } from "../../Data/DTOs/skill";
 import React, { useState } from "react";
 import { useAuth } from "react-oidc-context";
+import AddSkillModal from "./AddSkillModal";
 
 interface OpenAddSkillModalProps {
   skill: Skill;
@@ -31,7 +32,13 @@ const OpenAddSkillModal: React.FC<OpenAddSkillModalProps> = ({ skill }) => {
         >
           Add
         </button>
-        {isModalOpen && <div>{skill.skillName}</div>}
+        {isModalOpen && (
+          <AddSkillModal
+            onClose={handleModal}
+            skill={skill}
+            userId={usr?.id ?? 0}
+          />
+        )}
       </>
     )
   );

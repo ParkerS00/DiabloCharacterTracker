@@ -14,6 +14,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import ViewWeapon from "./ViewWeapon";
 import ViewAccessory from "./ViewAccessory";
 import ViewSkill from "./ViewSkill";
+import ViewCharacter from "./ViewCharacter";
 
 const queryClient = new QueryClient();
 
@@ -38,7 +39,11 @@ function App() {
                   path="/accessory/:accessoryId"
                   element={<ViewAccessory />}
                 />
-                <Route path="/skill/:skillId" element={<ViewSkill /> } />
+                <Route path="/skill/:skillId" element={<ViewSkill />} />
+                <Route
+                  path="/character/:characterId"
+                  element={<ViewCharacter />}
+                />
               </Routes>
               <Toaster position="top-center" gutter={2} />
             </div>

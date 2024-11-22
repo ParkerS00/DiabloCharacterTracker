@@ -11,8 +11,8 @@ const PlayableCharacterCard: React.FC<PlayableCharacterCardProps> = ({
 }) => {
   return (
     <Link
-      to={`/viewcharacter/${character.id}`}
-      className="bg-blood-700 p-4 rounded-lg shadow-md text-white max-w-xs space-y-4"
+      to={`/character/${character.id}`}
+      className="bg-blood-700 p-4 rounded-lg shadow-md text-white max-w-xs space-y-4 hover:shadow-blood-100"
     >
       <div className="flex justify-between items-start">
         <img

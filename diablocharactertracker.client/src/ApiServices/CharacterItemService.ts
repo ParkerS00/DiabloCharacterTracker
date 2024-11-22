@@ -4,10 +4,15 @@ import axios from "axios";
 import { AddCharacterItemRequest } from "@/Data/Requests/AddRequests/AddCharacterItemRequest";
 
 export const CharacterItemService = {
-  GetAllItemsForCharacter: async () => {
+  GetAllItemsForCharacter: async (characterId: number) => {
     try {
       const response = await axios.get<Item[]>(
-        `${import.meta.env.VITE_URL}/CharacterItem/getallitemsforcharacter`
+        `${import.meta.env.VITE_URL}/CharacterItem/getallitemsforcharacter`,
+        {
+          params: {
+            characterId,
+          },
+        }
       );
       return response.data;
     } catch (error) {

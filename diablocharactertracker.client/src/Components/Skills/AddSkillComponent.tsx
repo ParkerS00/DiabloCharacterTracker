@@ -1,5 +1,6 @@
 import { Skill } from "../../Data/DTOs/skill";
 import { FC } from "react";
+import OpenAddSkillModal from "./OpenAddSkillModal";
 
 interface AddSkillComponentProps {
   skill: Skill;
@@ -27,9 +28,7 @@ const AddSkillComponent: FC<AddSkillComponentProps> = ({ skill }) => {
           >
             {skill.isUltimate ? "Ultimate" : "Normal"}
           </p>
-          {/* <div className="flex justify-between mt-4 w-full">
-            <AddButton item={item} />
-          </div> */}
+            <OpenAddSkillModal skill={skill} />
         </div>
       </div>
     </div>

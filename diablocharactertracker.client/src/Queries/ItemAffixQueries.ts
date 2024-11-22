@@ -4,9 +4,9 @@ import keys from "../QueryKeys/ItemAffixKeys";
 import { AddItemAffixRequest } from "@/Data/Requests/AddRequests/AddItemAffixRequest";
 
 export const ItemAffixQueries = {
-  useGetAllAffixesByItem: () => {
+  useGetAllAffixesByItem: (itemId: number) => {
     return useQuery({
-      queryFn: () => ItemAffixService.GetAllAffixesByItem,
+      queryFn: () => ItemAffixService.GetAllAffixesByItem(itemId),
       queryKey: keys.GetAllAffixesByItem,
     });
   },

@@ -5,10 +5,15 @@ import { ItemAffix } from "@/Data/DTOs/ItemAffix";
 import { AddItemAffixRequest } from "@/Data/Requests/AddRequests/AddItemAffixRequest";
 
 export const ItemAffixService = {
-  GetAllAffixesByItem: async () => {
+  GetAllAffixesByItem: async (itemId: number) => {
     try {
       const response = await axios.get<Affix[]>(
-        `${import.meta.env.VITE_URL}/ItemAffix/getallaffixesforitem`
+        `${import.meta.env.VITE_URL}/ItemAffix/getallaffixesforitem`,
+        {
+          params: {
+            itemId,
+          },
+        }
       );
       return response.data;
     } catch (error) {

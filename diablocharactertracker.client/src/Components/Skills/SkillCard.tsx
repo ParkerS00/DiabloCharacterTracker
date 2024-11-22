@@ -9,7 +9,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
   return (
     <Link
       to={`/skill/${skill.id}`}
-      className="flex bg-blood-500 rounded-lg p-2 w-full max-w-xl"
+      className="flex bg-blood-500 rounded-lg p-2 w-full max-w-xl shadow-md hover:shadow-blood-100"
     >
       <div className="mr-1 lg:mr-4">
         <img

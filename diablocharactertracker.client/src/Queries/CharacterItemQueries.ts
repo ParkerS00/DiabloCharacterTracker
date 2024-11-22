@@ -4,9 +4,9 @@ import keys from "../QueryKeys/CharacterItemKeys";
 import { AddCharacterItemRequest } from "@/Data/Requests/AddRequests/AddCharacterItemRequest";
 
 export const CharacterItemQueries = {
-  useGetAllItemsForCharacter: () => {
+  useGetAllItemsForCharacter: (characterId: number) => {
     return useQuery({
-      queryFn: () => CharacterItemService.GetAllItemsForCharacter,
+      queryFn: () => CharacterItemService.GetAllItemsForCharacter(characterId),
       queryKey: keys.GetAllItemsForCharacter,
     });
   },
