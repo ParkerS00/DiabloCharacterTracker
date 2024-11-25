@@ -2,6 +2,7 @@ import { CharacterItem } from "@/Data/DTOs/CharacterItem";
 import { Item } from "../Data/DTOs/Item";
 import axios from "axios";
 import { AddCharacterItemRequest } from "@/Data/Requests/AddRequests/AddCharacterItemRequest";
+import { GetCharacterItemRequest } from "@/Data/Requests/GetRequests/GetCharacterItemRequest";
 
 export const CharacterItemService = {
   GetAllItemsForCharacter: async (characterId: number) => {
@@ -68,6 +69,25 @@ export const CharacterItemService = {
       return resposne.data;
     } catch (error) {
       console.error("Failed to delete character item");
+      throw error;
+    }
+  },
+  GetCharacterItemByRequest: async (
+    getCharacterItemRequest: GetCharacterItemRequest
+  ) => {
+    try {
+      const response = await axios.post<CharacterItem>(
+        `${import.meta.env.VITE_URL}/CharacterItem/getcharacteritembyrequest`,
+        getCharacterItemRequest,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Failed to get character item by request");
       throw error;
     }
   },

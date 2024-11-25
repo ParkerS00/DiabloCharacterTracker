@@ -1,5 +1,6 @@
 ﻿using DiabloCharacterTracker.Server.DTOs;
 using DiabloCharacterTracker.Server.Requests.AddRequests;
+using DiabloCharacterTracker.Server.Requests.GetRequests;
 using DiabloCharacterTracker.Server.Services.CharacterItemServices;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,5 +37,11 @@ public class CharacterItemController : Controller
     public async Task<bool> DeleteCharacterItem(int characterItemId)
     {
         return await characterItemService.DeleteCharacterItem(characterItemId);
+    }
+
+    [HttpPost("getcharacteritembyrequest")]
+    public async Task<CharacterItemDTO> GetCharacterItemByRequest(GetCharacterItemRequest request)
+    {
+        return await characterItemService.GetCharacterItemByRequest(request);
     }
 }

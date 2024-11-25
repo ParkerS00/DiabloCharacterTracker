@@ -2,6 +2,7 @@ import { CharacterItemService } from "../ApiServices/CharacterItemService";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import keys from "../QueryKeys/CharacterItemKeys";
 import { AddCharacterItemRequest } from "@/Data/Requests/AddRequests/AddCharacterItemRequest";
+import { GetCharacterItemRequest } from "@/Data/Requests/GetRequests/GetCharacterItemRequest";
 
 export const CharacterItemQueries = {
   useGetAllItemsForCharacter: (characterId: number) => {
@@ -32,8 +33,24 @@ export const CharacterItemQueries = {
       mutationFn: () =>
         CharacterItemService.DeleteCharacterItem(characterItemId),
       onSuccess: () => {
-        queryClient.invalidateQueries({ queryKey: keys.DeleteCharacterItem });
+        queryClient.invalidateQueries({
+          queryKey: keys.GetAllItemsForCharacter,
+        });
       },
+    });
+  },
+
+  useGetCharacterItemByRequest: (
+    getCharacterItemRequest: GetCharacterItemRequest
+  ) => {
+    return useQuery({
+      queryFn: () =>
+        CharacterItemService.GetCharacterItemByRequest(getCharacterItemRequest),
+      queryKey: [
+        keys.GetCharacterItemByRequest,
+        getCharacterItemRequest.playableCharacterId,
+        getCharacterItemRequest.itemId,
+      ],
     });
   },
 };

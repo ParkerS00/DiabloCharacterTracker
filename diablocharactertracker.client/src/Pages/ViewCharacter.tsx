@@ -48,7 +48,12 @@ const ViewCharacter = () => {
             <h1 className="text-2xl text-white mb-4">Character Items</h1>
             <div className="grid justify-center items-center sm:grid-cols-2 md:grid-cols-3 gap-4">
               {filteredItems?.map((item) => (
-                <ItemCard key={item.id} item={item} />
+                <ItemCard
+                  key={item.id}
+                  item={item}
+                  characterPage={true}
+                  playableCharacterId={Number(characterId)}
+                />
               ))}
             </div>
           </div>

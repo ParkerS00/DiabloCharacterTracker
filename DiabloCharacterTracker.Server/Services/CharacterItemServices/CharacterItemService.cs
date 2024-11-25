@@ -1,6 +1,7 @@
 ﻿using DiabloCharacterTracker.Server.Data;
 using DiabloCharacterTracker.Server.DTOs;
 using DiabloCharacterTracker.Server.Requests.AddRequests;
+using DiabloCharacterTracker.Server.Requests.GetRequests;
 using Microsoft.EntityFrameworkCore;
 
 namespace DiabloCharacterTracker.Server.Services.CharacterItemServices;
@@ -84,6 +85,25 @@ public class CharacterItemService : ICharacterItemService
 
         var characterItem = await context.CharacterItems
             .Where(x => x.Id == characterItemId)
+            .FirstOrDefaultAsync();
+
+        if (characterItem == null)
+        {
+            return new CharacterItemDTO();
+        }
+
+        return characterItem.ToDTO();
+    }
+
+    public async Task<CharacterItemDTO> GetCharacterItemByRequest(GetCharacterItemRequest request)
+    {
+        using var context = await dbContextFactory.CreateDbContextAsync();
+
+        var characterItem = await context.CharacterItems
+            .Include(x => x.PlayableCharacter)
+            .Include(x => x.Item)   
+            .Where(x => x.PlayableCharacterId == request.PlayableCharacterId)
+            .Where(x => x.ItemId == request.ItemId)
             .FirstOrDefaultAsync();
 
         if (characterItem == null)
