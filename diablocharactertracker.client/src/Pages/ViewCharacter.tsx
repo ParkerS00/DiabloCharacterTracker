@@ -8,6 +8,7 @@ import Loading from "../Components/Loading";
 import { FilterComponent } from "../Components/Forms/FilterComponent";
 import { itemClasses } from "../Components/Items/itemClasses";
 import { useState, useEffect } from "react";
+import { OpenRemoveSkillModal } from "../Components/Skills/OpenRemoveSkillModal";
 
 const ViewCharacter = () => {
   const { characterId } = useParams<{ characterId: string }>();
@@ -63,7 +64,13 @@ const ViewCharacter = () => {
             <h1 className="text-2xl text-white mb-4">Character Skills</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 w-full max-w-screen-item">
               {skills?.map((skill) => (
-                <SkillCard key={skill.id} skill={skill} />
+                <div>
+                  <SkillCard key={skill.id} skill={skill} />
+                  <OpenRemoveSkillModal
+                    skill={skill}
+                    playableCharacterId={Number(characterId)}
+                  />
+                </div>
               ))}
             </div>
           </div>

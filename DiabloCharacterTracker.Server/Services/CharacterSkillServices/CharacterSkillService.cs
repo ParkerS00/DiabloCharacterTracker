@@ -1,6 +1,7 @@
 ﻿using DiabloCharacterTracker.Server.Data;
 using DiabloCharacterTracker.Server.DTOs;
 using DiabloCharacterTracker.Server.Requests.AddRequests;
+using DiabloCharacterTracker.Server.Requests.GetRequests;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 
@@ -58,6 +59,23 @@ public class CharacterSkillService : ICharacterSkillService
         }
 
         return characterSkills.Select(x => x.Skill!.ToDTO()).ToList();
+    }
+
+    public async Task<CharacterSkillDTO> GetCharacterSkillByRequest(GetCharacterSkillRequest request)
+    {
+        using var context = await dbContextFactory.CreateDbContextAsync();
+
+        var characterSkill = await context.CharacterSkills
+            .Where(x => x.PlayableCharacterId == request.PlayableCharacterId)
+            .Where(x => x.SkillId == request.SkillId)
+            .FirstOrDefaultAsync();
+
+        if (characterSkill == null)
+        {
+            return new CharacterSkillDTO();
+        }
+
+        return characterSkill.ToDTO();
     }
 
     public async Task<bool> RemoveCharacterSkill(int characterSkillId)
