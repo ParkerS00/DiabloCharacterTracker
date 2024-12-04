@@ -6,7 +6,7 @@ function Home() {
           <p className="text-blood-50 text-wrap text-xl">
             Welcome to the diablo character tracker, create and track all of
             your different diablo 4 builds here! We have all 6 classes currenlty
-            playable in diablo 4 including the Barbarian, Druid, Srocerer,
+            playable in diablo 4 including the Barbarian, Druid, Sorcerer,
             Necromancer, Rogue, and the new Spiritborn.
           </p>
         </div>

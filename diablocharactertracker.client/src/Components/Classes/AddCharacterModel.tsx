@@ -45,9 +45,6 @@ const AddCharacterModal: React.FC<AddCharacterModalProps> = ({
           onClose();
         }
       },
-      onError: () => {
-        toast.error("Failed to add Playable Character");
-      },
     });
   };
 
