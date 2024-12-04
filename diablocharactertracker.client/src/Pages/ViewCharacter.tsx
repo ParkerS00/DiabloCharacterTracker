@@ -9,6 +9,8 @@ import { FilterComponent } from "../Components/Forms/FilterComponent";
 import { itemClasses } from "../Components/Items/itemClasses";
 import { useState, useEffect } from "react";
 import { OpenRemoveSkillModal } from "../Components/Skills/OpenRemoveSkillModal";
+import RemoveButton from "../Components/Buttons/RemoveButton";
+import { PlayableCharacterQueries } from "../Queries/PlayableCharacterQueries";
 
 const ViewCharacter = () => {
   const { characterId } = useParams<{ characterId: string }>();
@@ -23,6 +25,9 @@ const ViewCharacter = () => {
   useEffect(() => {
     localStorage.setItem("viewCharacterActiveClass", activeClass);
   }, [activeClass]);
+
+  const { data: playableCharacter } =
+    PlayableCharacterQueries.useGetPlayableCharacterById(Number(characterId));
 
   const { data: items, isLoading: gettingCharacters } =
     CharacterItemQueries.useGetAllItemsForCharacter(Number(characterId));
@@ -44,8 +49,14 @@ const ViewCharacter = () => {
           activeClass={activeClass}
           setActiveClass={setActiveClass}
         />
+        <div className="text-white flex justify-center items-center p-2">
+          <RemoveButton
+            playableCharacterId={Number(characterId)}
+            playableCharacterName={playableCharacter?.name}
+          />
+        </div>
         {activeClass !== "skills" && (
-          <div className="p-6 h-full flex flex-col items-center">
+          <div className="pb-6 pl-6 pr-6 pt-2 h-full flex flex-col items-center">
             <h1 className="text-2xl text-white mb-4">Character Items</h1>
             <div className="grid justify-center items-center sm:grid-cols-2 md:grid-cols-3 gap-4">
               {filteredItems?.map((item) => (

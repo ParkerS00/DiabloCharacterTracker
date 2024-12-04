@@ -45,7 +45,7 @@ export const PlayableCharacterQueries = {
       mutationFn: () => PlayableCharacterService.DeleteCharacter(characterId),
       onSuccess: () =>
         queryClient.invalidateQueries({
-          queryKey: keys.DeletePlayableCharacter,
+          queryKey: keys.GetAllCharactersForUser,
         }),
     });
   },

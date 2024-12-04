@@ -2,6 +2,7 @@ import { GetCharacterItemRequest } from "../../Data/Requests/GetRequests/GetChar
 import { Item } from "../../Data/DTOs/Item";
 import { CharacterItemQueries } from "../../Queries/CharacterItemQueries";
 import CancelItemButton from "./CancelItemButton";
+import toast from "react-hot-toast";
 
 interface RemoveModalProps {
   onClose: () => void;
@@ -26,8 +27,19 @@ export const RemoveItemModal: React.FC<RemoveModalProps> = ({
     CharacterItemQueries.useDeleteCharacterItem(itemToDelete?.id ?? 0);
 
   const handleDelete = () => {
-    deleteCharacterItem();
-    onClose();
+    deleteCharacterItem(undefined, {
+      onSuccess: (isDeleted) => {
+        if (isDeleted) {
+          toast.success("Item Removed Successfully");
+          onClose();
+        } else {
+          toast.error("Item Already Removed");
+        }
+      },
+      onError: () => {
+        toast.error("Failed To Remove Item");
+      },
+    });
   };
 
   return (
