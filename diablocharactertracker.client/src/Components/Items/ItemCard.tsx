@@ -26,7 +26,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
         </h2>
         <p className="text-blood-200">Slot: {item.slotType}</p>
       </Link>
-      <div>
+      <div className="flex items-center justify-center">
         {characterPage && (
           <RemoveButton item={item} playableCharacterId={playableCharacterId} />
         )}
