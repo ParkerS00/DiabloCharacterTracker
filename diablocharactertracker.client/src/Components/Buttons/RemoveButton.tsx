@@ -27,7 +27,7 @@ const RemoveButton: React.FC<RemoveButtonProps> = ({
     isAuthenticated && (
       <div>
         <button
-          className="px-4 py-2 bg-blood-600 hover:bg-blood-800 text-white rounded-md shadow flex items-center space-x-2"
+          className="px-4 py-2 bg-blood-600 hover:bg-blood-800 text-white rounded-md shadow flex"
           onClick={handleModal}
           aria-label={`Remove item ${item?.name || "unknown"}`}
         >
