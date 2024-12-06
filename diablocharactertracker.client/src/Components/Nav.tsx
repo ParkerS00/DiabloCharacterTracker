@@ -16,7 +16,10 @@ export const Navbar = () => {
       <div className="w-full">
         <div className="flex items-center justify-between h-16 px-4">
           <div className="flex items-center">
-            <a href="/" className="text-blood-200 text-2xl font-bold">
+            <a
+              href="/"
+              className="text-blood-200 hover:text-blood-50 rounded-md text-md font-medium"
+            >
               Diablo Tracker
             </a>
           </div>

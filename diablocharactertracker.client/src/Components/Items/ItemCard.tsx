@@ -21,7 +21,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
           alt={item.name}
           className="w-full h-48 object-cover rounded-md mb-4"
         />
-        <h2 className="text-xl md:text-lg font-semibold text-blood-950">
+        <h2 className="text-xl md:text-lg font-semibold text-blood-100">
           {item.name}
         </h2>
         <p className="text-blood-200">Slot: {item.slotType}</p>
